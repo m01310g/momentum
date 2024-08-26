@@ -1,25 +1,32 @@
-// const playerName = "m01310g";
-// const playerPoints = 121212;
-// const playerHandsome = true;
-// const playerFat = "little bit";
+// functions
 
-// array -> 어떤 특성인지 알려주지 못하고 있음
-// const player = ["m01310g", 121212, true, "little bit"];
+// function sayHello(nameOfPerson, age) {
+//     console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
+// }
 
-// object 이용
+// sayHello("Capybara", 10);
+// sayHello("Gyodon", 12);
+
+// 함수의 인수 a, b는 함수 내부에서만 존재
+// 함수 외부에서 console.log(a) 하면 a가 존재하지 않기 때문에 오류 발생
+function plus(a, b) {
+    console.log(a + b);
+}
+
+plus(1, 4);
+
+function divide(a, b) {
+    console.log(a / b);
+}
+
+divide(98, 20);
 
 const player = {
-    name: "m01310g",
-    points: 10,
-    fat: false,
+    name: "capybara",
+    sayHello: function(otherPersonsName) {
+        console.log("hello " + otherPersonsName + " nice to meet you");
+    },
 };
 
-console.log(player);
 console.log(player.name);
-
-player.fat = true;
-console.log(player);
-
-// 특성 추가
-player.lastName = "Kim";
-console.log(player);
+player.sayHello("gyodon");
