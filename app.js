@@ -1,11 +1,5 @@
-console.log(545454);
-console.log("lalalalal");
-
-console.log(5+2);
-console.log(5/2);
-console.log(5*2);
-
 // variable 사용
+// const -> 값 변경 불가
 const a = 5;
 const b = 2;
 
@@ -17,3 +11,12 @@ console.log(a/b);
 console.log(a*b);
 
 console.log("hello "+myName);
+
+// let 사용해서 variable 정의
+// let -> 값 변경 가능
+let c = 5;
+let d = 2;
+
+console.log(c+d);
+console.log(c/d);
+console.log(c*d);
