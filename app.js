@@ -8,51 +8,18 @@
 
 
 // CSS Selector 형태로 원하는 element를 불러옴, 한 개의 element만 return
-const h1 = document.querySelector(".Hello h1"); 
-console.log(h1);
+const h1 = document.querySelector("div.Hello:first-child h1"); 
 
 function handleTitleClick() {
-    h1.style.color = "blue";
-    console.log("title was clicked!");
-}
-
-function handleMouseEnter() {
-    h1.innerText = "Mouse is here!";
-}
-
-function handleMouseLeave() {
-    h1.innerText = "Mouse is gone!";
-}
-
-function handleWindowResize() {
-    document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-    alert("copier!");
-}
-
-function handleWindowOffline() {
-    alert("SOS no WIFI");
-}
-
-function handleWindowOnline() {
-    alert("All Good");
+    const currentColor = h1.style.color
+    let newColor;
+    if (currentColor === "blue") {
+        newColor = "tomato";
+    } else {
+        newColor = "blue";
+    }
+    h1.style.color = newColor;
 }
 
 // click event 발생하는지 확인, 함수 넣을 때 괄호는 필요 없음
-// h1.addEventListener("click", handleTitleClick);
-h1.onclick = handleTitleClick;
-
-// 조건에 부합하는 모든 element return
-// const title2 = document.querySelectorAll(".Hello h1");
-// console.log(title2);
-
-// event를 찾는 방법 -> e.g. h1 html element mdn 검색, Wbe APIs 페이지 확인, HTMLelement
-h1.addEventListener("mouseenter", handleMouseEnter);
-h1.addEventListener("mouseleave", handleMouseLeave);
-
-window.addEventListener("resize", handleWindowResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
+h1.addEventListener("click", handleTitleClick);
