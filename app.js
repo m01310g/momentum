@@ -1,24 +1,29 @@
-// loginForm은 HTML element -> HTML 내부 바로 검색 가능
-// const loginForm = document.getElementById("login-form");
-// const loginInput = loginForm.querySelector("input");
-// const loginButton = loginForm.querySelector("button");
-
+const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
 
-// username의 validity 검사 필요
-function onLoginBtnClick() {
+const link = document.querySelector("a");
+
+// 함수가 argument를 받도록 하고, 그걸 JS에 넘겨줌
+// argument는 공간을 만들어준 것
+function onLoginSubmit(event) {
+    // preventDefault 함수는 어떤 event의 기본 행동이 발생되지 않도록 막는 역할
+    event.preventDefault();
     const username = loginInput.value;
-    // browser 자체 기능으로도 존재(form)
-    // if (username === "") {
-    //     alert("Please write yourname");
-    // } else if (username.length > 15) {
-    //     alert("Your name is too long.")
-    // }
-
-    // HTML의 form 기능 이용 -> form을 계속 submit 하기 때문에 입력창의 내용이 버튼을 누르면 계속 비워짐(browser refresh)
-    // button의 click event를 확인할 필요가 없어짐(enter을 눌러도 form은 submit 됨)
     console.log(username);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
+function handleLinkClick(event) {
+    // preventDefault 때문에 기본 동작 실행 x -> 링크로 이동되지 않음
+    event.preventDefault();
+    console.log(event);
+    // alert가 페이지가 다른 동작을 못하도록 막음, OK 클릭해서 alert 사라지면 기본 동작 실행
+    // alert("clicked!");
+}
+
+// loginForm의 submit event 감지
+// event가 발생할 때 브라우저가 function 호출
+
+// EventListener function의 첫번째 argument는 항상 방금 막 일어난 일에 대한 정보
+loginForm.addEventListener("submit", onLoginSubmit);    // form을 submit 할 때 입력값 받아냄(페이지가 자동으로 새로고침)
+
+link.addEventListener("click", handleLinkClick);
