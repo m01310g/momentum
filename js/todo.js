@@ -1,4 +1,5 @@
 // todo list 작성, 화면에 표시/삭제
+// localStorage에도 todo list 저장/삭제
 
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.querySelector("#todo-form input");
@@ -20,14 +21,24 @@ function deleteToDo(event) {
     // event가 일어난 target 요소의 부모 요소를 삭제(여기에서는 li)
     const li = event.target.parentElement;
     li.remove();
+
+    // array에서 item을 삭제할 때 실제로는 item이 삭제되는 것이 아니라 item을 제외한 새로운 array를 생성
+    // filter 함수 사용, forEach처럼 동작
+    // return 값이 true이면 array에 포함 
+    // array에 저장된 toDo.id는 number, li.id는 string -> 형 변환 필요(parseInt)
+    // li에 저장된 값은 localSotrage에 있던 값이기 때문에 string으로 저장되어 있음
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
 function paintToDo(newTodo) {
     const li = document.createElement("li");
+    li.id = newTodo.id; // li 요소에 id 부여
+
     const span = document.createElement("span");
 
     // span 내부에 작성한 todo 입력
-    span.innerText = newTodo;
+    span.innerText = newTodo.text;
 
     const button = document.createElement("button");
 
@@ -53,17 +64,19 @@ function handleToDoSubmit(event) {
 
     // input 창 비우기
     todoInput.value = "";
+
+    // localStorage에서 todo list 관리하기 쉽도록 id 부여, object로 저장
+    const newTodoObj = {
+        text: newTodo,
+        id: Date.now(), // 지금 시간의 밀리초
+    };
     // todo 저장하기 위해 toDos array에 새로 입력되는 todo 저장
-    toDos.push(newTodo);
-    paintToDo(newTodo);
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
 todoForm.addEventListener("submit", handleToDoSubmit);
-
-// function sayHello(item) {
-//     console.log("this is the turn of", item);
-// }
 
 // string으로 저장되어 있는 array를 실제 활용 가능한 array로 변경
 const savedToDos = localStorage.getItem(TODOS_KEY);
