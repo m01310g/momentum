@@ -7,25 +7,47 @@
     <title>Momentum</title>
 </head>
 <body>
-    <h2 id="clock">00:00:00</h2>
-    <form id="login-form" class="hidden">
+    <h1 id="clock" style="text-align: center; color: white;">00:00:00</h2>
+    <form id="login-form" style="text-align: center; color: white;" class="hidden">
         <input 
         required
         maxlength="15"
         type="text" 
         placeholder="What is your name?"/>
-        <button>Log In</button>
+        <button style="color: white;">
+            Log In
+            <style>
+                button {
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 3px white;
+                    background-color: transparent;
+                    align-items: center;
+                }
+            </style>
+        </button>
     </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <form id="todo-form">
-        <input type="text" placeholder="Write a To Do and Press Enter" required/>
+    <h1 id="greeting" style="text-align: center; color: white;" class="hidden"></h1>
+    <form id="todo-form" style="text-align: center;" >
+        <input type="text" placeholder="Write a To Do and Press Enter" style="color: white;" required/>
+        <style>
+            input {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 3px white;
+                background-color: transparent;
+            }
+        </style>
     </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
+    <ul id="todo-list" style="text-align: center; color: white;"></ul>
+    <div id="quote" style="color: white; text-align: center;">
         <span></span>
+        <br>
         <span></span>
     </div>
-    <div id="weather">
+    <div id="weather" style="color: white; text-align: center;">
         <span></span>
         <span></span>
     </div>
@@ -35,6 +57,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
-    <script src="js/apikey.js"></script>
+    <script src="js/apikey.js" type="module" defer></script>
 </body>
 </html>

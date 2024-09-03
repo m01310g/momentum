@@ -9,6 +9,8 @@ const bgImage = document.createElement("img");
 
 bgImage.src = `img/${chosenImage}`;
 
+bgImage.classList.add("bgImage");
+
 // html의 body를 불러옴
 // appendChild()는 body에 html을 추가함
 document.body.appendChild(bgImage);

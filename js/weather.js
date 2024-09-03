@@ -3,6 +3,8 @@
 
 // navigator 모듈 사용
 
+import config from "./apikey";
+
 const API_KEY = config.apikey;
 
 function onGeoOk(position) {

@@ -10,7 +10,7 @@ function getClock() {
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const seconds = String(date.getSeconds()).padStart(2, "0");
     
-    clock.innerText = `${hours}:${minutes}:${seconds}`;
+    clock.innerText = `${hours}:${minutes}:${seconds}`
 }
 
 // setInterval 함수: 2개의 인자를 받음(실행하고자 하는 function, 간격(ms))
