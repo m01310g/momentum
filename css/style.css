@@ -11,3 +11,12 @@
     z-index: -1;
     animation: fadeIn 0.5s linear;
 }
+
+.button {
+    background-color: transparent;
+    border: none;
+}
+
+.todo-list {
+    padding-top: 10px;
+}

@@ -7,56 +7,48 @@
     <title>Momentum</title>
 </head>
 <body>
-    <h1 id="clock" style="text-align: center; color: white;">00:00:00</h2>
+    <div id="weather" style="color: white;">
+        <span></span>
+        <span></span>
+    </div>
+    <h1 id="clock" style="text-align: center; color: white; font-size: 100px; padding-top: 8%;">00:00:00</h1>
     <form id="login-form" style="text-align: center; color: white;" class="hidden">
         <input 
         required
         maxlength="15"
         type="text" 
+        style="color: white; width: 300px; height: 50px; font-size: 30px; border-bottom: 2px solid white;"
         placeholder="What is your name?"/>
-        <button style="color: white;">
-            Log In
-            <style>
-                button {
-                    border-top: none;
-                    border-left: none;
-                    border-right: none;
-                    border-bottom: 3px white;
-                    background-color: transparent;
-                    align-items: center;
-                }
-            </style>
-        </button>
     </form>
     <h1 id="greeting" style="text-align: center; color: white;" class="hidden"></h1>
-    <form id="todo-form" style="text-align: center;" >
-        <input type="text" placeholder="Write a To Do and Press Enter" style="color: white;" required/>
+    <form id="todo-form" style="text-align: center; padding-top: 20px; padding-bottom: 10px;" >
+        <input 
+        type="text" 
+        placeholder="Write a To Do here" 
+        style="color: white; width: 150px; height: 30px; font-size: 15px;" 
+        required/>
         <style>
             input {
                 border-top: none;
                 border-left: none;
                 border-right: none;
-                border-bottom: 3px white;
+                border-bottom: 2px solid white;
                 background-color: transparent;
             }
         </style>
     </form>
-    <ul id="todo-list" style="text-align: center; color: white;"></ul>
-    <div id="quote" style="color: white; text-align: center;">
-        <span></span>
+    <ul id="todo-list" style="color: white; list-style-type: none; padding-left:40%;"></ul>
+    <div id="quote" style="color: white; text-align: center; position: relative;">
+        <span style="position: fixed; bottom: 100px; left: 0; right: 0;"></span>
         <br>
-        <span></span>
-    </div>
-    <div id="weather" style="color: white; text-align: center;">
-        <span></span>
-        <span></span>
+        <span style="position: fixed; top: 90%; bottom: 80px; left: 0; right: 0;"></span>
     </div>
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
-    <script src="js/apikey.js" type="module" defer></script>
+    <script type="module" src="js/apikey.js"></script>
+    <script type="module" src="js/weather.js"></script>
 </body>
 </html>

@@ -47,13 +47,15 @@ function paintToDo(newTodo) {
     // button의 click event 감지
     button.addEventListener("click", deleteToDo); 
 
-    li.appendChild(span);
-
     // li에 x button 추가
     li.appendChild(button);
+    button.classList.add("button");
+
+    li.appendChild(span);
 
     // li에 추가된 span에 작성된 todo를 저장함 -> li를 todoList에 저장하기만 하면 list를 표시할 수 있음
     todoList.appendChild(li);
+    li.classList.add("todo-list");
 }
 
 function handleToDoSubmit(event) {
